@@ -1,5 +1,18 @@
 :root {
-  --measure: 80ch;
+  --measure: 60ch;
+  --ratio: 1.33;
+  --s-5: calc(var(--s-4) / var(--ratio));
+  --s-4: calc(var(--s-3) / var(--ratio));
+  --s-3: calc(var(--s-2) / var(--ratio));
+  --s-2: calc(var(--s-1) / var(--ratio));
+  --s-1: calc(var(--s0) / var(--ratio));
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio));
+  --s2: calc(var(--s1) * var(--ratio));
+  --s3: calc(var(--s2) * var(--ratio));
+  --s4: calc(var(--s3) * var(--ratio));
+  --s5: calc(var(--s4) * var(--ratio));
+  --space: var(--s0);
 }
 
 html {
@@ -7,8 +20,42 @@ html {
   font-size: calc(.75rem + 100* (.005vmax + .005vmin));
 }
 
-main {
-  max-width: var(--measure);
+.el-stack, article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.el-stack > *, article > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.el-stack > * + *, article > * + * {
+  margin-top: var(--space);
+}
+
+.el-center, main {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   margin-left: auto;
   margin-right: auto;
+  max-width: var(--measure);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
