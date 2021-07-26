@@ -15,56 +15,12 @@
   --space: var(--s0);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 html {
   font-family: sans-serif;
-  font-size: calc(0.75rem + 100 * (0.005vmax + 0.005vmin));
+  font-size: calc(.5rem + 100* (.005vmax + .005vmin));
 }
 
-main {
-  --space: var(--s3);
-}
-
-.el-frame {
-  --n: 9;
-  --d: 16;
-  padding-bottom: calc(var(--n) / var(--d) * 100%);
-  position: relative;
-}
-
-.el-frame > * {
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.el-frame > img,
-.el-frame > video {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.el-stack, article, main {
+.el-stack, article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -77,12 +33,12 @@ main {
           justify-content: flex-start;
 }
 
-.el-stack > *, article > *, main > * {
+.el-stack > *, article > * {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.el-stack > * + *, article > * + *, main > * + * {
+.el-stack > * + *, article > * + * {
   margin-top: var(--space);
 }
 
@@ -92,43 +48,14 @@ main {
   margin-left: auto;
   margin-right: auto;
   max-width: var(--measure);
-  /*display: flex;
-  flex-direction: column;
-  align-items: center;*/
-}
-
-.el-switcher, .gallery {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  gap: var(--s1);
-}
-
-.el-switcher > *, .gallery > * {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-preferred-size: calc((var(--measure) - 100%) * 999);
-      flex-basis: calc((var(--measure) - 100%) * 999);
-}
-
-.el-switcher > :nth-last-child(n+3), .gallery > :nth-last-child(n+3),
-.el-switcher > :nth-last-child(n+3) ~ *,
-.gallery > :nth-last-child(n+3) ~ * {
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-}
-
-article * {
-  --space: var(--s-1);
-}
-
-header {
-  height: var(--s0);
-}
-
-footer {
-  height: var(--s5);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
