@@ -17,7 +17,7 @@
 
 html {
   font-family: sans-serif;
-  font-size: calc(.5rem + 100* (.005vmax + .005vmin));
+  font-size: calc(.75rem + 100* (.005vmax + .005vmin));
 }
 
 .el-stack, article {
