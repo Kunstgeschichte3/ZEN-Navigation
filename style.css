@@ -25,6 +25,7 @@
 html {
   font-family: sans-serif;
   font-size: calc(0.75rem + 100 * (0.005vmax + 0.005vmin));
+  scroll-behavior: smooth;
 }
 
 main {
@@ -131,4 +132,149 @@ header {
 
 footer {
   height: var(--s5);
+}
+
+img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.lightbox {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  /* v-align top; because flex direction row > */
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  z-index: -1;
+}
+
+.lightbox img {
+  height: 100vh;
+  width: 100vw;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  opacity: 0;
+}
+
+.lightbox:target {
+  display: block;
+  background: #fff8;
+  z-index: 99;
+  opacity: 1;
+}
+.lightbox:target img {
+  opacity: 1;
+}
+button {
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.player-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.player-container[data-init] {
+  display: none;
+}
+
+.player {
+  width: var(--measure);
+  margin: 0 auto;
+}
+.player figure {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5em;
+  padding: 0.5rem;
+}
+.player figure figcaption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.player figure code {
+  font-size: 0.75rem;
+}
+.player figure .seek {
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+}
+.player audio[src] {
+  display: none;
+}
+
+audio {
+  width: 100%;
+}
+
+.tape {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+.tape:focus-within {
+  border-radius: 0.1rem;
+  -webkit-box-shadow: inset 0 0 0rem 0.25em #ccc;
+          box-shadow: inset 0 0 0rem 0.25em #ccc;
+}
+
+.tape button, .player button {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 100%;
+  -webkit-box-shadow: inset 0 0 0em 0.275em #000;
+          box-shadow: inset 0 0 0em 0.275em #000;
+  -webkit-transition: all 0.175s ease;
+  transition: all 0.175s ease;
+}
+
+.pause {
+  background: url(assets/ui/play.svg) no-repeat 52.5% center;
+}
+
+.play {
+  background: url(assets/ui/pause.svg) no-repeat 52.5% center;
+}
+
+.play,
+.pause {
+  background-size: 30%;
 }
