@@ -28,7 +28,7 @@ const player = document.querySelector('.player audio');
 ctrls.forEach(el => el.addEventListener('click', event => {
     el.classList.toggle("pause");
     el.classList.toggle("play");
-    console.log(el.toggleAttribute("data-playing"));
+    el.toggleAttribute("data-playing");
     isPlaying = el.hasAttribute("data-playing");
     tapeBtn = document.querySelector(`.tape [data-id="${currentTrackID}"]`);
     if (!isPlaying) {
@@ -110,7 +110,7 @@ player.addEventListener('timeupdate', (event) => {
     currtime = player.currentTime;
     progress = [currtime / time2sec(duration) * 100];
     seek.value = progress;
-    console.log(progress);
+    //console.log(progress);
     time = sec2time(player.currentTime);
 
     //    console.log(time);
