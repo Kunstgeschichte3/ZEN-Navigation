@@ -124,14 +124,13 @@ playerCaption.addEventListener('click', (e) => {
     document.querySelector(`.tape [data-id="${currentTrackID}"]`).scrollIntoView({ block: "center" })
 });
 
-seek.addEventListener('change', (e)=> {
+seek.addEventListener('input', (e)=> {
     seeking = true;
-    player.pause();
     let seekPosition = e.target.value / 100;
     let playFrom = time2sec(duration) * seekPosition;
     player.currentTime = playFrom;
     seeking = false;
-    player.play();
+    
 });
 
 function updateProgress() {

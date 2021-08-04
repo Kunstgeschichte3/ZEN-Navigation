@@ -184,13 +184,17 @@ button {
   }
 }
 .player {
-  width: calc( var(--measure) - .5rem);
+  width: calc( var(--measure));
   //background: linear-gradient(transparent 15%,#fff 15%,#fff 85%,transparent 85%);
   background: #fff;
   margin: 0 auto;
   //margin: 0 auto 0.5rem auto;
 
   //border: 2px solid green;
+  border-radius: .5rem;
+  box-shadow: 0 0 0em 0.175rem #000;
+  //box-shadow:   0 0 0 0.275rem #ccc;
+  //transform: scale(1.02);
   & figure {
     width: 100%;
 
@@ -214,6 +218,7 @@ audio {
   width: 100%;
 }
 .tape {
+  transition: all .25s;
   text-align: center;
   display: flex;
   align-items: center;
@@ -221,8 +226,10 @@ audio {
   padding: 0.5rem;
 
   &:focus-within {
-    border-radius: 0.1rem;
-    box-shadow: inset 0 0 0rem 0.25em #ccc;
+    border-radius: 0.5rem;
+    //box-shadow: inset 0 0 0rem 0.25em #ccc;
+    box-shadow:  0 0.075rem 0.275rem 0.00000175rem #ccc;
+    //transform: scale(1.01)
   }
 }
 .tape button, .player button {
